@@ -1,0 +1,21 @@
+import gradletask.demo.DirectoryLister
+
+repositories {
+    jcenter()
+}
+
+apply plugin: 'groovy'
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.12'
+}
+
+task listHome(type: DirectoryLister) {
+    description 'Lists the contents of your home directory'
+    directoryToList System.getProperty('user.home')
+}
+
+task listJavaHome(type: DirectoryLister) {
+    description 'Lists the contents of JAVA_HOME home directory'
+    directoryToList System.getProperty('java.home')
+}
